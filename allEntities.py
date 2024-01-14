@@ -2,7 +2,7 @@
 from entity import *
 from environment import *
 
-david = Player((250, 200), .9)
+david = Player((250, 200), 12, 1, .9)
 floor = Surface((0, 400), (1000, 400), 'floor')
 wall1 = Surface((500, 200), (500, 300), 'wall1')
 wall2 = Surface((250, 200), (250, 300), 'wall2')

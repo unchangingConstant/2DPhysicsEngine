@@ -40,10 +40,10 @@ def pointInBounds(point, xBounds, yBounds):
 
 def collisionDetected(entity, surface):
 
-    eDeltaX = entity.getVelocity()[0]
-    eDeltaY = entity.getVelocity()[1]
+    eDeltaX = entity.velocity[0]
+    eDeltaY = entity.velocity[1]
     motionTrace = np.array([eDeltaX, - eDeltaY])
-    eConstant = (eDeltaX * entity.getPriorPosition()[1]) - (eDeltaY * entity.getPriorPosition()[0])
+    eConstant = (eDeltaX * entity.priorPosition[1]) - (eDeltaY * entity.priorPosition[0])
 
     sDeltaX = surface.edge2[0] - surface.edge1[0]
     sDeltaY = surface.edge2[1] - surface.edge1[1]
@@ -60,8 +60,8 @@ def collisionDetected(entity, surface):
         collisionPoint = np.linalg.solve(collisionMatrix, eVector)
         collisionPoint = np.array([collisionPoint[1], collisionPoint[0]])
 
-        xPathBound = (entity.getPriorPosition()[0], entity.getPosition()[0])
-        yPathBound = (entity.getPriorPosition()[1], entity.getPosition()[1])
+        xPathBound = (entity.priorPosition[0], entity.position[0])
+        yPathBound = (entity.priorPosition[1], entity.position[1])
 
         xSurfaceBound = (surface.edge1[0], surface.edge2[0])
         ySurfaceBound = (surface.edge1[1], surface.edge2[1])
@@ -99,8 +99,8 @@ def resolveMotion(entity, environment):
 
     while remainingFrametime > 0:
         
-        entity.setPriorPosition(entity.getPosition())
-        entity.modPosition(entity.getVelocity() * remainingFrametime)
+        entity.priorPosition = entity.position
+        entity.position = entity.position + (entity.velocity * remainingFrametime)
         potentialCollisionPoints = []
         potentialSurfaces = []
 
@@ -113,13 +113,13 @@ def resolveMotion(entity, environment):
         if len(potentialCollisionPoints) == 0:
             break
         
-        collisionPoint = findClosestPoint(entity.getPosition(), potentialCollisionPoints)
+        collisionPoint = findClosestPoint(entity.position, potentialCollisionPoints)
         surface = potentialSurfaces[findNumpyArrayIndex(potentialCollisionPoints, collisionPoint)]
 
-        entity.setPosition(collisionPoint)
-        distanceTravelled = np.linalg.norm(entity.getPriorPosition() - collisionPoint)
-        remainingFrametime -= distanceTravelled / m.sqrt(np.dot(entity.getVelocity(), entity.getVelocity()))
+        entity.position = collisionPoint
+        distanceTravelled = np.linalg.norm(entity.priorPosition - collisionPoint)
+        remainingFrametime -= distanceTravelled / m.sqrt(np.dot(entity.velocity, entity.velocity))
 
-        normalForce = findNormalForce(entity.getVelocity(), surface)
-        entity.modVelocity(normalForce * (1 + entity.elasticity))
-        entity.modPosition(normalize(normalForce))
+        normalForce = findNormalForce(entity.velocity, surface)
+        entity.velocity = entity.velocity + (normalForce * (1 + entity.elasticity))
+        entity.position = entity.position + normalize(normalForce)
