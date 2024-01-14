@@ -3,6 +3,13 @@ from abc import ABC, abstractmethod
 import colorGradient as CG
 import numpy as np
 import collisionHandler as ch
+from math import ceil
+
+def round2DVector(vector):
+
+    entry1 = ceil(vector[0])
+    entry2 = ceil(vector[1])
+    return np.array([entry1, entry2])
 
 class EntityInterface(ABC):
 
@@ -10,16 +17,6 @@ class EntityInterface(ABC):
 
     def __init__():
         #Duh
-        pass
-    
-    @abstractmethod
-
-    def force():
-        pass
-    
-    @abstractmethod
-
-    def tick():
         pass
 
 class Player(EntityInterface):
@@ -29,23 +26,41 @@ class Player(EntityInterface):
     DOWN = np.array([0, 1])
     UP = np.array([0, -1])
 
-    def __init__(self, initPos, walkSpeed, dexterity, elasticity):
+    def __init__(self, initPos, elasticity):
 
-        self.position = np.array([initPos[0], initPos[1]])
-        self.priorPosition = np.array([initPos[0], initPos[1]])
-        self.velocity = np.array([0, 0])
-
-        self.walkSpeed = walkSpeed
-        self.dex = dexterity
+        self._position = np.array([initPos[0], initPos[1]])
+        self._priorPosition = np.array([initPos[0], initPos[1]])
+        self._velocity = np.array([0, 0])
 
         self.elasticity = elasticity
     
-    def force(self, vector, magnitude):
+    #Position methods
+    def getPosition(self):
+        return self._position
+    
+    def modPosition(self, modVector):
+        self._position += round2DVector(modVector)
 
-        self.velocity = self.velocity + (ch.normalize(vector) * magnitude)
+    def setPosition(self, newPos):
+        self._position = round2DVector(newPos)
+    
+    #PriorPosition methods
+    def getPriorPosition(self):
+        return self._priorPosition
 
-    def tick(self):
-        
-        self.priorPosition = self.position
-        self.position = self.position + self.velocity
+    def modPriorPosition(self, modVector):
+        self._priorPosition += round2DVector(modVector)
+
+    def setPriorPosition(self, newPriorPos):
+        self._priorPosition = round2DVector(newPriorPos)
+
+    #Velocity methods
+    def getVelocity(self):
+        return self._velocity
+    
+    def modVelocity(self, modVector):
+        self._velocity += round2DVector(modVector)
+
+    def setVelocity(self, newVel):
+        self._velocity = round2DVector(newVel)
 
