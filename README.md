@@ -18,19 +18,19 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+<center>[![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]</center>
 
 
 
-<!-- PROJECT LOGO -->
+<!-- PROJECT LOGO 
 <br />
 <div align="center">
   <a href="https://github.com/unchangingConstant/2DPhysicsEngine">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
-
+-->
 <h3 align="center">2DPhysicsEngine</h3>
 
   <p align="center">
