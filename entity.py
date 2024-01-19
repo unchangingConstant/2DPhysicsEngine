@@ -39,7 +39,7 @@ class Player(EntityInterface):
         return self._position
     
     def modPosition(self, modVector):
-        self._position += round2DVector(modVector)
+        self._position = self._position + round2DVector(modVector)
 
     def setPosition(self, newPos):
         self._position = round2DVector(newPos)
@@ -49,7 +49,7 @@ class Player(EntityInterface):
         return self._priorPosition
 
     def modPriorPosition(self, modVector):
-        self._priorPosition += round2DVector(modVector)
+        self._priorPosition = self._priorPosition + round2DVector(modVector)
 
     def setPriorPosition(self, newPriorPos):
         self._priorPosition = round2DVector(newPriorPos)
@@ -59,7 +59,7 @@ class Player(EntityInterface):
         return self._velocity
     
     def modVelocity(self, modVector):
-        self._velocity += round2DVector(modVector)
+        self._velocity = self._velocity + round2DVector(modVector)
 
     def setVelocity(self, newVel):
         self._velocity = round2DVector(newVel)
