@@ -7,8 +7,8 @@ from math import ceil
 
 def round2DVector(vector):
 
-    entry1 = ceil(vector[0])
-    entry2 = ceil(vector[1])
+    entry1 = round(vector[0], 5)
+    entry2 = round(vector[1], 5)
     return np.array([entry1, entry2])
 
 class EntityInterface(ABC):

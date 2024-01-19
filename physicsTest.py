@@ -10,10 +10,10 @@ windowDim = (500, 500)
 win = pygame.display.set_mode(windowDim)
 pygame.display.set_caption("Sandevistan!!!")
 
+player = david
+
 allEntities = [david]
 environment = [bound1, bound2, bound3, bound4]
-
-david.setVelocity([10, 0])
 
 run = True
 
@@ -29,13 +29,13 @@ while run:
     userInput = pygame.key.get_pressed()
 
     if userInput[pygame.K_a]:
-        david.modVelocity(p.LEFT)
+        player.modVelocity(p.LEFT)
     if userInput[pygame.K_d]:
-        david.modVelocity(p.RIGHT)
+        player.modVelocity(p.RIGHT)
     if userInput[pygame.K_w]:
-        david.modVelocity(p.UP)
+        player.modVelocity(p.UP)
     if userInput[pygame.K_s]:
-        david.modVelocity(p.DOWN)
+        player.modVelocity(p.DOWN)
 
     for entity in allEntities:
         ch.resolveMotion(entity, environment)
