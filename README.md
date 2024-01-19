@@ -18,9 +18,9 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][https://github.com/unchangingConstant]
-[![Issues][issues-shield]][https://github.com/unchangingConstant/2DPhysicsEngine/issues]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/ethan-begley-3a4606240/]
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][forks.url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -36,11 +36,9 @@
   <p align="center">
     A physics and collision engine to be used for a short video game demo.
     <br />
-    <a href="https://github.com/unchangingConstant/2DPhysicsEngine"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/unchangingConstant/2DPhysicsEngine"><strong>Explore the docs »</strong></a> (Coming soon!)
     <br />
     <br />
-    <a href="https://github.com/unchangingConstant/2DPhysicsEngine">View Demo</a>
-    ·
     <a href="https://github.com/unchangingConstant/2DPhysicsEngine/issues">Report Bug</a>
     ·
     <a href="https://github.com/unchangingConstant/2DPhysicsEngine/issues">Request Feature</a>
@@ -184,7 +182,7 @@ Project Link: [https://github.com/unchangingConstant/2DPhysicsEngine]
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://www.linkedin.com/in/ethan-begley-3a4606240/
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
