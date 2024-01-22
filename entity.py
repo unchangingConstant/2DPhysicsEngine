@@ -2,7 +2,6 @@
 from abc import ABC, abstractmethod
 import colorGradient as CG
 import numpy as np
-import collisionHandler as ch
 from math import ceil
 
 def round2DVector(vector):

@@ -1,8 +1,7 @@
 import pygame
-from entity import Player as p
 from allEntities import *
-import colorGradient as cg
 import collisionHandler as ch
+import colorGradient as cg
 
 pygame.init()
 windowDim = (500, 500)
@@ -29,13 +28,13 @@ while run:
     userInput = pygame.key.get_pressed()
 
     if userInput[pygame.K_a]:
-        player.modVelocity(p.LEFT)
+        player.modVelocity(Player.LEFT)
     if userInput[pygame.K_d]:
-        player.modVelocity(p.RIGHT)
+        player.modVelocity(Player.RIGHT)
     if userInput[pygame.K_w]:
-        player.modVelocity(p.UP)
+        player.modVelocity(Player.UP)
     if userInput[pygame.K_s]:
-        player.modVelocity(p.DOWN)
+        player.modVelocity(Player.DOWN)
 
     for entity in allEntities:
         ch.resolveMotion(entity, environment)
