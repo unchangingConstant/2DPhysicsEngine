@@ -19,6 +19,8 @@ run = True
 
 while run:
 
+    david.modVelocity([0, 1])
+
     print(david.getVelocity())
     win.fill((0, 0, 0))
 
