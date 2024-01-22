@@ -1,13 +1,37 @@
 #Will handle logic for collisions
 import numpy as np
 import math as m
+import environment
+import entity
 
-def normalize(vector):
+def normalize(vector: np.array([float, float])):
+    '''
+    Normalizes the given vector.
+
+    :param vector: A 2 dimensional vector.
+    :type vector: np.array([float, float])
+    :return: The given vector normalized.
+    :rtype: np.array([float, float])
+
+    '''
 
     normalizedVector = vector / np.sqrt(np.sum(vector ** 2))
     return normalizedVector
 
-def findNormalForce(motionVector, surface):
+def findNormalForce(motionVector: np.array([float, float]), surface: environment.Surface):
+    '''
+    Takes a motionVector (representing the vector formed by an entity's
+    ``_priorPosition`` and ``_position``) and a surface object, then returns the
+    component of the motionVector normal to the surface.
+
+    :param motionVector: A 2 dimensional vector.
+    :param surface: A surface object.
+    :type motionVector: np.array([float, float])
+    :type surface: environment.surface()
+    :return: The component of the motionVector normal to the surface.
+    :rtype: np.array([float, float])
+
+    '''
 
     surfaceVector = normalize(np.array([surface.edge1[1] - surface.edge2[1], surface.edge2[0] - surface.edge1[0]]))
 
@@ -24,7 +48,21 @@ def findNormalForce(motionVector, surface):
 
     return normalForce
 
-def pointInBounds(point, xBounds, yBounds):
+def pointInBounds(point: np.array([float, float]), xBounds: (float, float), yBounds: (float, float)):
+    """
+    Takes a point and two tuples, representing upper/lower x/y bounds, respectively, and returns a boolean
+    indicating whether the point is located in those bounds.
+
+    :param point: A point in 2D space.
+    :param xBounds: The upper/lower x bounds (the order doesn't matter)
+    :param yBounds: The upper/lower y bounds (the order doesn't matter)
+    :type point: np.array(float, float)
+    :type xBounds: (float, float)
+    :type yBounds: (float, float)
+    :return: A boolean indicating whether the point is in the given bounds.
+    :rtype: bool
+
+    """
 
     inXBounds1 = (point[0] <= xBounds[0] and point[0] >= xBounds[1])
     inXBounds2 = (point[0] >= xBounds[0] and point[0] <= xBounds[1])
@@ -38,7 +76,7 @@ def pointInBounds(point, xBounds, yBounds):
         return False
     return True
 
-def collisionDetected(entity, surface):
+def collisionDetected(entity: entity.EntityInterface, surface: environment.Surface):
 
     eDeltaX = entity.getVelocity()[0]
     eDeltaY = entity.getVelocity()[1]

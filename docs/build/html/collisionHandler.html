@@ -36,6 +36,73 @@
 <h1>collisionHandler<a class="headerlink" href="#collisionhandler" title="Permalink to this headline">¶</a></h1>
 <p>This file contains all of the functions involved in calculating collisions.
 Here’s a rundown on what all of the function do:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="collisionHandler.normalize">
+<span class="sig-prename descclassname"><span class="pre">collisionHandler.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#collisionHandler.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes the given vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> (<em>np.array</em><em>(</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>)</em>) – A 2 dimensional vector.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The given vector normalized.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array([float, float])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="collisionHandler.findNormalForce">
+<span class="sig-prename descclassname"><span class="pre">collisionHandler.</span></span><span class="sig-name descname"><span class="pre">findNormalForce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#collisionHandler.findNormalForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a motionVector (representing the vector formed by an entity’s
+<code class="docutils literal notranslate"><span class="pre">_priorPosition</span></code> and <code class="docutils literal notranslate"><span class="pre">_position</span></code>) and a surface object, then returns the
+component of the motionVector normal to the surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>motionVector</strong> (<em>np.array</em><em>(</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em><em>)</em>) – A 2 dimensional vector.</p></li>
+<li><p><strong>surface</strong> (<em>environment.surface</em><em>(</em><em>)</em>) – A surface object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The component of the motionVector normal to the surface.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array([float, float])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="collisionHandler.pointInBounds">
+<span class="sig-prename descclassname"><span class="pre">collisionHandler.</span></span><span class="sig-name descname"><span class="pre">pointInBounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#collisionHandler.pointInBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a point and two tuples, representing upper/lower x/y bounds, respectively, and returns a boolean
+indicating whether the point is located in those bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> (<em>np.array</em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – A point in 2D space.</p></li>
+<li><p><strong>xBounds</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – The upper/lower x bounds (the order doesn’t matter)</p></li>
+<li><p><strong>yBounds</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – The upper/lower y bounds (the order doesn’t matter)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean indicating whether the point is in the given bounds.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
