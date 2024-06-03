@@ -48,14 +48,15 @@ def findNormalForce(motionVector: np.array, surface: environment.Surface):
 
     return normalForce
 
-def pointInBounds(point: np.array, xBounds: tuple[float], yBounds: tuple[float]):
+def pointInBounds(point: np.array, xBounds: list[float], yBounds: list[float]):
     """
     Takes a point and two tuples, representing upper/lower x/y bounds, respectively, and returns a boolean
-    indicating whether the point is located in those bounds.
+    indicating whether the point is located in those bounds. It will return true even if the point is one
+    pixel out of bounds in either direction.
 
     :param point: A point in 2D space.
-    :param xBounds: The upper/lower x bounds (the order doesn't matter)
-    :param yBounds: The upper/lower y bounds (the order doesn't matter)
+    :param xBounds: The lower/upper x bounds (order doesn't matter)
+    :param yBounds: The lower/upper y bounds (order doesn't matter)
     :type point: np.array(float, float)
     :type xBounds: (float, float)
     :type yBounds: (float, float)
@@ -63,20 +64,17 @@ def pointInBounds(point: np.array, xBounds: tuple[float], yBounds: tuple[float])
     :rtype: bool
 
     """
+    xBounds.sort()
+    yBounds.sort()
 
-    inXBounds1 = (point[0] <= xBounds[0] and point[0] >= xBounds[1])
-    inXBounds2 = (point[0] >= xBounds[0] and point[0] <= xBounds[1])
+    inXBounds = (point[0] >= xBounds[0] - 0.1 and point[0] <= xBounds[1] + 0.1)
+    inYBounds = (point[1] >= yBounds[0] - 0.1 and point[1] <= yBounds[1] + 0.1)
 
-    inYBounds1 = (point[1] <= yBounds[0] and point[1] >= yBounds[1])
-    inYBounds2 = (point[1] >= yBounds[0] and point[1] <= yBounds[1])
+    if (inXBounds and inYBounds):
+        return True
+    return False
 
-    if not (inXBounds1 or inXBounds2):
-        return False
-    if not (inYBounds1 or inYBounds2):
-        return False
-    return True
-
-def collisionDetected(entity: entity.EntityInterface, surface: environment.Surface):
+def findCollisionPoint(entity: entity.EntityInterface, surface: environment.Surface):
 
     eDeltaX = entity.getVelocity()[0]
     eDeltaY = entity.getVelocity()[1]
@@ -98,21 +96,21 @@ def collisionDetected(entity: entity.EntityInterface, surface: environment.Surfa
         collisionPoint = np.linalg.solve(collisionMatrix, eVector)
         collisionPoint = np.array([collisionPoint[1], collisionPoint[0]])
 
-        xPathBound = (entity.getPriorPosition()[0], entity.getPosition()[0])
-        yPathBound = (entity.getPriorPosition()[1], entity.getPosition()[1])
+        xPathBound = [entity.getPriorPosition()[0], entity.getPosition()[0]]
+        yPathBound = [entity.getPriorPosition()[1], entity.getPosition()[1]]
 
-        xSurfaceBound = (surface.edge1[0], surface.edge2[0])
-        ySurfaceBound = (surface.edge1[1], surface.edge2[1])
+        xSurfaceBound = [surface.edge1[0], surface.edge2[0]]
+        ySurfaceBound = [surface.edge1[1], surface.edge2[1]]
 
         entityPathIntersects = pointInBounds(collisionPoint, xPathBound, yPathBound)
         surfaceIntersects = pointInBounds(collisionPoint, xSurfaceBound, ySurfaceBound)
 
         if entityPathIntersects and surfaceIntersects:
-            return (True, collisionPoint)
-        return (False, 0)
+            return collisionPoint
+        return None
 
     except np.linalg.LinAlgError:
-        return (False, 0)
+        return None
 
 def findClosestPoint(objectPosition, positions):
     
@@ -137,15 +135,14 @@ def resolveMotion(entity, environment):
 
     while remainingFrametime > 0:
         
-        entity.setPriorPosition(entity.getPosition())
-        entity.modPosition(entity.getVelocity() * remainingFrametime)
+        entity.move(entity.getVelocity() * remainingFrametime)
         potentialCollisionPoints = []
         potentialSurfaces = []
 
         for surface in environment:
-            colTuple = collisionDetected(entity, surface)
-            if colTuple[0]:
-                potentialCollisionPoints.append(colTuple[1])
+            potentialCollisionPoint = findCollisionPoint(entity, surface)
+            if potentialCollisionPoint is not None:
+                potentialCollisionPoints.append(potentialCollisionPoint)
                 potentialSurfaces.append(surface)
 
         if len(potentialCollisionPoints) == 0:

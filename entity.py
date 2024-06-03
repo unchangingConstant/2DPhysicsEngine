@@ -33,6 +33,11 @@ class Player(EntityInterface):
 
         self.elasticity = elasticity
     
+    #Moving methods
+    def move(self, moveVector):
+        self._priorPosition = self._position
+        self._position = self._position + moveVector
+
     #Position methods
     def getPosition(self):
         return self._position
