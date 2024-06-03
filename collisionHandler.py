@@ -4,7 +4,7 @@ import math as m
 import environment
 import entity
 
-def normalize(vector: np.array([float, float])):
+def normalize(vector: np.array):
     '''
     Normalizes the given vector.
 
@@ -18,7 +18,7 @@ def normalize(vector: np.array([float, float])):
     normalizedVector = vector / np.sqrt(np.sum(vector ** 2))
     return normalizedVector
 
-def findNormalForce(motionVector: np.array([float, float]), surface: environment.Surface):
+def findNormalForce(motionVector: np.array, surface: environment.Surface):
     '''
     Takes a motionVector (representing the vector formed by an entity's
     ``_priorPosition`` and ``_position``) and a surface object, then returns the
@@ -48,7 +48,7 @@ def findNormalForce(motionVector: np.array([float, float]), surface: environment
 
     return normalForce
 
-def pointInBounds(point: np.array([float, float]), xBounds: (float, float), yBounds: (float, float)):
+def pointInBounds(point: np.array, xBounds: tuple[float], yBounds: tuple[float]):
     """
     Takes a point and two tuples, representing upper/lower x/y bounds, respectively, and returns a boolean
     indicating whether the point is located in those bounds.
@@ -132,7 +132,7 @@ def findNumpyArrayIndex(list, item):
             return i
 
 def resolveMotion(entity, environment):
-    
+
     remainingFrametime = 1
 
     while remainingFrametime > 0:
