@@ -8,8 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,9 +20,6 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 
 <!-- PROJECT LOGO 
 <br />
@@ -103,22 +98,21 @@ You just need to have pygame and numpy installed for this project. On windows, o
   ```sh
   pip install pygame
   ```
-
-
+* Sphinx
+  ```sh
+  pip install -U sphinx
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Simply run the physicsTest.py file on your machine to run a simulation. 
-All entities and surfaces used in the simulation must be constructed in the allEntities.py file and added into either the ```allEntities``` list (for entity objects) or the ```environment``` list (for surface objects) in the physicsTest.py file.
+Simply run the main.py file on your machine to run a simulation. 
+All entities and surfaces used in the simulation must be constructed in the allEntities.py file and added into either the ```allEntities``` list (for entity objects) or the ```environment``` list (for surface objects) in the main.py file.
 
-To control an object with your WASD keys, simply set the ```player``` variable in physicsTest.py equal to the ```Player``` object you want to control. The default player is an entity named ```david```
+To control an object with your WASD keys, simply set the ```player``` variable in main.py equal to the ```Player``` object you want to control. The default player is an entity named ```david```
 
 <!--_For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -132,8 +126,6 @@ To control an object with your WASD keys, simply set the ```player``` variable i
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -151,8 +143,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -162,16 +152,12 @@ Project Link: [https://github.com/unchangingConstant/2DPhysicsEngine]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 * Read me template by <a href="https://github.com/othneildrew/Best-README-Template">[othneildrew]</a> on github.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

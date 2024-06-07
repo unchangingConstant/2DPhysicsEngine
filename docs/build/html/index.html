@@ -1,26 +1,25 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Welcome to 2DPhysicsEngine’s documentation! &#8212; 2DPhysicsEngine 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -33,7 +32,7 @@
           <div class="body" role="main">
             
   <section id="welcome-to-2dphysicsengine-s-documentation">
-<h1>Welcome to 2DPhysicsEngine’s documentation!<a class="headerlink" href="#welcome-to-2dphysicsengine-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to 2DPhysicsEngine’s documentation!<a class="headerlink" href="#welcome-to-2dphysicsengine-s-documentation" title="Link to this heading">¶</a></h1>
 <p><strong>2DPhysicsEngine</strong> is made to be the basis for a video game demo that will come out as a separate project.
 For now, it’s capable of handling interactions between an elastic point entity and immovable surfaces. You also have the
 capability to control your own point entity using the WASD keys.</p>
@@ -42,16 +41,22 @@ capability to control your own point entity using the WASD keys.</p>
 <p>This project is under active development</p>
 </div>
 <section id="contents">
-<span id="id1"></span><h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collisionHandler.html">collisionHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collisionHandler.html">collisionHandler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collisionHandler.html#collisionHandler.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="collisionHandler.html#collisionHandler.findNormalForce"><code class="docutils literal notranslate"><span class="pre">findNormalForce()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="collisionHandler.html#collisionHandler.pointInBounds"><code class="docutils literal notranslate"><span class="pre">pointInBounds()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="collisionHandler.html#collisionHandler.findCollisionPoint"><code class="docutils literal notranslate"><span class="pre">findCollisionPoint()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
 <section id="indices-and-tables">
-<span id="id2"></span><h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -90,7 +95,7 @@ capability to control your own point entity using the WASD keys.</p>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -98,8 +103,8 @@ capability to control your own point entity using the WASD keys.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -113,11 +118,11 @@ capability to control your own point entity using the WASD keys.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2024, Ethan Begley.
+      &#169;2024, Ethan Begley.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
       
       |
       <a href="_sources/index.rst.txt"

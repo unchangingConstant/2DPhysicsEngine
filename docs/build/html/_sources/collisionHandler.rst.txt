@@ -9,4 +9,6 @@ Here's a rundown on what all of the function do:
 .. autofunction:: collisionHandler.findNormalForce
 |
 .. autofunction:: collisionHandler.pointInBounds
+|
+.. autofunction:: collisionHandler.findCollisionPoint
 

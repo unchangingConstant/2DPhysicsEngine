@@ -1,8 +1,6 @@
 #Will handle logic for handling sprites (circles for now) in my little simulation
 from abc import ABC, abstractmethod
-import colorGradient as CG
 import numpy as np
-from math import ceil
 
 def round2DVector(vector):
 

@@ -1,7 +1,6 @@
 import pygame
 from allEntities import *
 import collisionHandler as ch
-import colorGradient as cg
 
 pygame.init()
 windowDim = (500, 500)
@@ -38,12 +37,12 @@ while run:
 
     for entity in allEntities:
         ch.resolveMotion(entity, environment)
-    
+
     for entity in allEntities:
-        pygame.draw.circle(win, cg.WHITE, entity.getPosition(), 15)
+        pygame.draw.circle(win, (255, 255, 255), entity.getPosition(), 15)
 
     for surface in environment:
-        pygame.draw.line(win, cg.HOT_PINK, surface.edge1, surface.edge2, 3)
+        pygame.draw.line(win, (255, 105, 180), surface.edge1, surface.edge2, 3)
 
     pygame.time.delay(32)
 
