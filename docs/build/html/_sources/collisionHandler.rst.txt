@@ -11,4 +11,9 @@ Here's a rundown on what all of the function do:
 .. autofunction:: collisionHandler.pointInBounds
 |
 .. autofunction:: collisionHandler.findCollisionPoint
-
+|
+.. autofunction:: collisionHandler.findClosestPoint
+|
+.. autofunction:: collisionHandler.findNumpyArrayIndex
+|
+.. autofunction:: collisionHandler.resolveMotion
