@@ -96,6 +96,8 @@ You just need to have pygame and numpy installed for this project. On windows, o
   ```sh
   pip install pygame
   ```
+
+If you'd like to add to the documentation, you need sphinx installed:
 * Sphinx
   ```sh
   pip install -U sphinx
@@ -115,8 +117,8 @@ To control an object with your WASD keys, simply set the ```player``` variable i
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Create proper documentation
-- [ ] Create changelog
+- [ ] Switch collision detections from a check-if-in-bounds approach to a parameterization approach
+- [ ] Rework loop allow for collisions between moving entities
 - [ ] Add capacity to calculate collisions with shapes as well as dots
     - [ ] Collisions between circles and edges
     - [ ] Collisions between squares and edges
