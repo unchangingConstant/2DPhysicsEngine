@@ -31,7 +31,7 @@
   <p align="center">
     A physics and collision engine to be used for a short video game demo.
     <br />
-    <a href="https://github.com/unchangingConstant/2DPhysicsEngine"><strong>Explore the docs »</strong></a> (Coming soon!)
+    <a href="https://dphysicsengine-ieo44.kinsta.page/"><strong>Explore the docs »</strong></a> 
     <br />
     <br />
     <a href="https://github.com/unchangingConstant/2DPhysicsEngine/issues">Report Bug</a>
@@ -154,6 +154,7 @@ Project Link: [https://github.com/unchangingConstant/2DPhysicsEngine]
 ## Acknowledgments
 
 * Read me template by <a href="https://github.com/othneildrew/Best-README-Template">[othneildrew]</a> on github.
+* Documentation website powered by <a href="https://kinsta.com/">[Kinsta]</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
