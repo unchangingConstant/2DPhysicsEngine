@@ -1,0 +1,11 @@
+simulation---
+<name>
+
+-edges-
+<point1><point2>
+
+-players-
+<position>
+<velocity>
+
+simulation---
