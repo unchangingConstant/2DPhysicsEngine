@@ -10,4 +10,3 @@ class Surface():
         self.edge2 = np.array([edge2[0], edge2[1]])
 
         self.tag = tag
-
